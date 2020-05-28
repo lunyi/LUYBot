@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+	<ApplicationIcon />
+	<OutputType>Exe</OutputType>
+	<StartupObject />
+	<AssemblyName>SkypeBot</AssemblyName>
+	<RootNamespace>SkypeBot</RootNamespace> 
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Content\**" />
+    <Content Remove="Content\**" />
+    <EmbeddedResource Remove="Content\**" />
+    <None Remove="Content\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Service\ListenerBot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bot.Builder" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Bot.Configuration" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructures-extensions\Extensions\Extensions.csproj" />
+    <ProjectReference Include="..\..\infrastructures-jsonconfig\JsonConfig\JsonConfig.csproj" />
+    <ProjectReference Include="..\..\infrastructures-json\Json\Json.csproj" />
+  </ItemGroup>
+</Project>

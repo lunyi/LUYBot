@@ -1,0 +1,10 @@
+version: '3'
+services:
+  botservice:
+    container_name: tgpbot-production
+    image: umon-build.ugsdev.com:5000/tgpbot:production
+    ports:
+     - "80:80"
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Production
+    restart: always

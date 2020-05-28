@@ -1,0 +1,12 @@
+version: '3'
+services:
+  botservice:
+    container_name: tgpbot-development
+    image: localhost:5000/tgpbot:development
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development     
+    networks:
+     - bot
+networks:
+  bot:
+    driver: bridge
